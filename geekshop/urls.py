@@ -23,7 +23,6 @@ urlpatterns = [
     path('index.html', mainapp.main, name=''),
     path('admin/', admin.site.urls),
     path('products/', mainapp.products),
-    path('products_all', mainapp.products),    
     path('products.html', mainapp.products, name='products'),
     path('products_<str:product_id>', mainapp.products),
     path('contact/', mainapp.contact),
