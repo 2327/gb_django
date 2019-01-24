@@ -9,10 +9,10 @@
 	     {% endif %}
         {% endblock %}
 
-{# Удаляю лого с главной #}
         {% block logo %}
         <div class="hero-white">
         <div class="header clearfix">
+	<a href="/" class="logo"></a>
         {% endblock %}
 
         {% block search %}
@@ -23,9 +23,11 @@
         {% endblock %}
 
         {% block content %}
+	<div class="details">
         {% include 'mainapp/inc_categories_menu.html' %}
-        <div class="details-products">
+
         {% include 'mainapp/product_description.html' %}
+
         {% include 'mainapp/product_related.html' %}
         </div>
 
