@@ -22,10 +22,15 @@ urlpatterns = [
     path('', mainapp.main),
     path('index.html', mainapp.main, name=''),
     path('admin/', admin.site.urls),
-    path('products/', mainapp.products),
+    path('products/', mainapp.products, name='products'),
     path('products.html', mainapp.products, name='products'),
-    path('products_<str:product_id>', mainapp.products),
-    path('contact/', mainapp.contact),
+    path('products_all', mainapp.products, name='products_all'),
+    path('products_home', mainapp.products, name='products_home'),
+    path('products_office', mainapp.products, name='products_office'),
+    path('products_modern', mainapp.products, name='products_modern'),
+    path('products_classic', mainapp.products, name='products_classic'),
+    path('products_<str:name>', mainapp.products, name='products_<str:name>'),
+    path('contact/', mainapp.contact, name='contact'),
     path('contact.html', mainapp.contact, name='contact')
 ]    
 
