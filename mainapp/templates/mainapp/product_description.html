@@ -18,7 +18,7 @@
                                    
                                         <div class="description">
                                             <h3 class="big-bold">{{ product.name }}</h3>
-                                            {% if product.discount == '1' %}<h3 class="red">горячее предложение</h3>{% endif %}
+                                            {% if product.discount %}<h3 class="red">горячее предложение</h3>{% endif %}
                                             <p class="price"> {{ product.price }}  <span>{{ product.currency }}</span></p>
                                             <a href="#" class="red-button">заказать <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <div class="description-text">

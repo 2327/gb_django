@@ -23,14 +23,17 @@
 
 <body>
         <div class="container">
+	        {% block logo %}
                 <div class="slider">
+		
                         <div class="header clearfix">
                                 <a href="/" class="logo"></a>
+		{% endblock %}
                                 {% block menu %}
                                 <ul class="menu">
-                                        <li><a href="/" class="active">домой</a></li>
-                                        <li><a href="{% url 'products' %}">продукты</a></li>
-                                        <li><a href="{% url 'contact' %}">контакты</a></li>
+                                        <li><a href="/" {% if request.path == '/' %} class="active" {% endif %}>домой</a></li>
+                                        <li><a href="{% url 'products' %}"{% if 'product' in request.path %} class="active" {% endif %}>продукты</a></li>
+                                        <li><a href="{% url 'contact' %}"{% if request.path == '/contacts/' or request.path == '/contacts' %} class="active" {% endif %}>контакты</a></li>
                                 </ul>
                                 {% endblock %}
                                 {% block search %}
@@ -49,7 +52,9 @@
                                 <a href="#"></a><a href="#"></a><a href="#"></a>
                         </div>
 			{% endblock %}
+		{% block logo_end %}	
                 </div>
+		{% endblock %}
         
         {% block content %}
                 <div class="featured">

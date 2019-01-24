@@ -1,8 +1,9 @@
+<div class="links clearfix">
 <ul class="links-menu">
     {% for link in categories %}
         <li>
             <a href="{% url 'product' name=link.href %}"
-	    {% if request.path == product_url %}
+	    {% if link.href in request.path %}
 	    class="active"
 	    {% endif %}>
                 {{ link.name }}
@@ -10,4 +11,4 @@
         </li>
     {% endfor %}
 </ul>
-
+</div>

@@ -9,6 +9,12 @@
 	     {% endif %}
         {% endblock %}
 
+{# Удаляю лого с главной #}
+        {% block logo %}
+        <div class="hero-white">
+        <div class="header clearfix">
+        {% endblock %}
+
         {% block search %}
               {{ block.super }}<a href="#" class="basket"></a>
         {% endblock %}
