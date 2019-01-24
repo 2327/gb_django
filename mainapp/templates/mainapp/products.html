@@ -2,12 +2,13 @@
 {% load staticfiles %}
 
 	{% block title %}
-             {{ content.title }} 
+             {{ title }} 
         {% endblock %}
 
         {% block search %}
               {{ block.super }}<a href="#" class="basket"></a>
         {% endblock %}
+{# Удаляю слайдер с главной #}	
         {% block slider %}
         {% endblock %}
 
