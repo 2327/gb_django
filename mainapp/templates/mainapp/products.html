@@ -1,25 +1,25 @@
 {% extends 'mainapp/base.html' %}
 {% load staticfiles %}
 
-	{% block title %}
-             {{ title }} 
+        {% block title %}
+             {{ title }}
         {% endblock %}
 
         {% block search %}
               {{ block.super }}<a href="#" class="basket"></a>
         {% endblock %}
-{# Удаляю слайдер с главной #}	
+{# Удаляю слайдер с главной #}
         {% block slider %}
         {% endblock %}
 
         {% block content %}
         {% include 'mainapp/inc_categories_menu.html' %}
         <div class="details-products">
-	{% include 'mainapp/product_description.html' %}
-	{% include 'mainapp/product_related.html' %}
+        {% include 'mainapp/product_description.html' %}
+        {% include 'mainapp/product_related.html' %}
         </div>
 
-       	<div class="clr"></div>
+        <div class="clr"></div>
 
 {% endblock %}
 
