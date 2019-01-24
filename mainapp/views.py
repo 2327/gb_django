@@ -7,13 +7,16 @@ def main(request):
 
 
 def products(request, name=''):
-    with open('links_menu.json') as f:
-        links_menu = json.load(f)["links_menu"]
+    with open('categories.json') as f:
+        categories = json.load(f)["categories"]
+
+    with open('product_description.json') as f1:
+        product = json.load(f1)
 
     content = {
         'title': 'Каталог',
-        'links_menu': links_menu,
-        'same_products': 'Пока незнаю'
+        'categories': categories,
+        'product': product
     }
 
     return render(request, 'mainapp/products.html', content )

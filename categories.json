@@ -1,5 +1,5 @@
 {
-"links_menu":[
+"categories":[
     {"href": "all", "name": "все"},
     {"href": "home", "name": "дом"},
     {"href": "office", "name": "офис"},
