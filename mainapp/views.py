@@ -10,8 +10,8 @@ def products(request, name=''):
     with open('categories.json') as f:
         categories = json.load(f)["categories"]
 
-    with open('product_description.json') as f1:
-        product = json.load(f1)
+    with open('product_description.json') as f:
+        product = json.load(f)
 
     content = {
         'title': 'Каталог',

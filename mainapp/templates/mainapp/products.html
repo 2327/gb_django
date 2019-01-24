@@ -2,7 +2,11 @@
 {% load staticfiles %}
 
         {% block title %}
-             {{ title }}
+	     {% if request.path == current_url %}
+	       {{ product.name }}
+	     {% else %}  
+               {{ title }}
+	     {% endif %}
         {% endblock %}
 
         {% block search %}

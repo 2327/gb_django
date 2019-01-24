@@ -23,8 +23,8 @@ urlpatterns = [
     path('index.html', mainapp.main, name=''),
     path('admin/', admin.site.urls),
     path('products/', mainapp.products, name='products'),
-    path('products.html', mainapp.products, name='products'),
-    path('products_<str:name>', mainapp.products, name='products'),
+    path('products.html', mainapp.products),
+    path('product_<str:name>', mainapp.products, name='product'),
     path('contact/', mainapp.contact, name='contact'),
     path('contact.html', mainapp.contact, name='contact')
 ]    
