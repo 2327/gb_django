@@ -1,8 +1,8 @@
 <ul class="links-menu">
     {% for link in categories %}
         <li>
-            <a href="{% url 'products' name=link.href as current_url %}"
-	    {% if request.path == current_url %}
+            <a href="{% url 'product' name=link.href %}"
+	    {% if request.path == product_url %}
 	    class="active"
 	    {% endif %}>
                 {{ link.name }}
