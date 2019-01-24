@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 
 
@@ -6,13 +7,9 @@ def main(request):
 
 
 def products(request, name=''):
-    links_menu = [
-    {'href': 'products_all', 'name': 'все'},
-    {'href': 'products_home', 'name': 'дом'},
-    {'href': 'products_office', 'name': 'офис'},
-    {'href': 'products_modern', 'name': 'модерн'},
-    {'href': 'products_classic', 'name': 'классика'},]
-    
+    with open('links_menu.json') as f:
+        links_menu = json.load(f)["links_menu"]
+
     content = {
         'title': 'Каталог',
         'links_menu': links_menu,
