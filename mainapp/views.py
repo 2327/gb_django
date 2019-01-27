@@ -1,14 +1,19 @@
 import json
 from django.shortcuts import render
+from .models import Categories, Products
 
 
 def main(request):
-    return render(request, 'mainapp/index.html')
+    title = 'главная'
+
+    content = {'title': title}
+    return render(request, 'mainapp/index.html', content)
 
 
 def products(request, name=''):
-    with open('categories.json') as f:
-        categories = json.load(f)["categories"]
+#    with open('categories.json') as f:
+#        categories = json.load(f)["categories"]
+    categories = Categories.objects.all()[:6]
 
     with open('product_description.json') as f:
         product = json.load(f)
@@ -19,11 +24,8 @@ def products(request, name=''):
         'product': product
     }
 
-    return render(request, 'mainapp/products.html', content )
+    return render(request, 'mainapp/products.html', content)
     
-
 
 def contact(request):
     return render(request, 'mainapp/contact.html')
-
-# Create your views here.
