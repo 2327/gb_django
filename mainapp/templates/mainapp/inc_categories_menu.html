@@ -1,0 +1,14 @@
+<div class="links clearfix">
+<ul class="links-menu">
+    {% for link in categories %}
+        <li>
+            <a href="{% url 'product' name=link.href %}"
+	    {% if link.href in request.path %}
+	    class="active"
+	    {% endif %}>
+                {{ link.name }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+</div>

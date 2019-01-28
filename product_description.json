@@ -1,0 +1,10 @@
+{
+"name":"Отличный стул",
+"discount": true,
+"main_image": "slider1.jpg",
+"images": ["controll.jpg", "controll1.jpg", "controll2.jpg"],
+"price":"2585.9",
+"currency":"руб.",
+"description":"<p>Расположитесь комфортно.</p><p>Отличное качество материалов позволит вам это.</p> <p>Различные цвета</p> <p>высочайший уровень эргономики и прочность.</p>"
+}
+
