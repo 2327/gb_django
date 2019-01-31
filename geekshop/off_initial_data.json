@@ -1,0 +1,87 @@
+[
+{
+  "model": "mainapp.categories",
+  "pk": 1,
+  "fields": {
+    "name": "все",
+    "href": "all",
+    "description": ""
+  }
+},
+{
+  "model": "mainapp.categories",
+  "pk": 2,
+  "fields": {
+    "name": "дом",
+    "href": "home",
+    "description": ""
+  }
+},
+{
+  "model": "mainapp.categories",
+  "pk": 3,
+  "fields": {
+    "name": "офис",
+    "href": "office",
+    "description": ""
+  }
+},
+{
+  "model": "mainapp.categories",
+  "pk": 4,
+  "fields": {
+    "name": "модерн",
+    "href": "modern",
+    "description": ""
+  }
+},
+{
+  "model": "mainapp.categories",
+  "pk": 5,
+  "fields": {
+    "name": "классика",
+    "href": "classic",
+    "description": ""
+  }
+},
+{
+  "model": "mainapp.categories",
+  "pk": 6,
+  "fields": {
+    "name": "тест",
+    "href": "test",
+    "description": ""
+  }
+},
+{
+  "model": "mainapp.products",
+  "pk": 1,
+  "fields": {
+    "name": "все",
+    "href": "all",
+    "description": ""
+  }
+},
+{
+  "model": "mainapp.products",
+  "pk": 1,
+  "fields": {
+    "name": "Отличный стул",
+    "category"     = models.ForeignKey(Categories, on_delete=models.CASCADE)
+    "href"         = models.CharField(verbose_name='ссылка', max_length=64, unique=True)
+    "discount": true,
+    "main_image": "slider1.jpg",
+    "images": ["controll.jpg", "controll1.jpg", "controll2.jpg"],
+    "price":"2585.9",
+    "currency":"руб.",
+    "short_desc": "",
+    "description":"<p>Расположитесь комфортно.</p><p>Отличное качество материалов позволит вам это.</p> <p>Различные цвета</p> <p>высочайший уровень эргономики и прочность.</p>",
+    "quantity": ""
+  }
+},
+
+]
+
+
+
+

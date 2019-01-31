@@ -32,7 +32,7 @@
                                 {% block menu %}
                                 <ul class="menu">
                                         <li><a href="/" {% if request.path == '/' %} class="active" {% endif %}>домой</a></li>
-                                        <li><a href="{% url 'products' %}"{% if 'product' in request.path %} class="active" {% endif %}>продукты</a></li>
+                                        <li><a href="{% url 'products:index' %}"{% if 'product' in request.path %} class="active" {% endif %}>продукты</a></li>
                                         <li><a href="{% url 'contact' %}"{% if request.path == '/contacts/' or request.path == '/contacts' %} class="active" {% endif %}>контакты</a></li>
                                 </ul>
                                 {% endblock %}
@@ -55,8 +55,10 @@
 		{% block logo_end %}	
                 </div>
 		{% endblock %}
-        
+
         {% block content %}
+
+
                 <div class="featured">
                         <div class="featured-menu">
                                         <a class="active" href="#">Популярные</a><a href="#">Новинки</a>
