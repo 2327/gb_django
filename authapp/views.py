@@ -1,11 +1,8 @@
-from django.shortcuts import render
-
 # Create your views here.
 from django.shortcuts import render, HttpResponseRedirect
-from authapp.forms import ShopUserLoginForm
+from authapp.forms import ShopUserLoginForm, ShopUserEditForm
 from django.contrib import auth
 from django.urls import reverse
-from forms import ShopUserEditForm
 
 
 def login(request):
@@ -31,10 +28,6 @@ def logout(request):
 
 
 def register(request):
-    return HttpResponseRedirect(reverse('main'))
-
-
-def edit(request):
     return HttpResponseRedirect(reverse('main'))
 
 
