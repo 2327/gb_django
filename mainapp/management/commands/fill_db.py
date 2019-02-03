@@ -1,8 +1,10 @@
 from django.core.management.base import BaseCommand
-from mainapp.models import Categories, Products
-from django.contrib.auth.models import User
+from mainapp.models import Categories
+from mainapp.models import Products
 
-import json, os
+
+import json
+import os
 
 JSON_PATH = 'mainapp/json'
 
@@ -17,24 +19,23 @@ class Command(BaseCommand):
         categories = load_from_json('categories')
 
         Categories.objects.all().delete()
-        for category in categories:
+        for category in categories['categories']:
             new_category = Categories(**category)
             new_category.save()
 
-        products = load_from_json('products')
+        products = load_from_json('product_description')
 
-        Product.objects.all().delete()
-        for product in products:
+        Products.objects.all().delete()
+        for product in products['products']:
             category_name = product["category"]
-            # Получаем категорию по имени
             _category = Categories.objects.get(name=category_name)
-            # Заменяем название категории объектом
             product['category'] = _category
-            new_product = Product(**product)
+            print(product)
+            new_product = Products(**product)
+            print(new_product)
             new_product.save()
 
-        # Создаем суперпользователя при помощи менеджера модели
-        super_user = User.objects.create_superuser('django', 'django@geekshop.local', 'geekbrains')
-
-        # Создаем суперпользователя при помощи менеджера модели
+#        Создаем суперпользователя при помощи менеджера модели
+#        super_user = User.objects.create_superuser('django', 'django@geekshop.local', 'geekbrains')
+#        Создаем суперпользователя при помощи менеджера модели
         #super_user = ShopUser.objects.create_superuser('django', 'django@geekshop.local', 'geekbrains', age=33)
