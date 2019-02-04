@@ -17,7 +17,7 @@ class Products(models.Model):
     discount     = models.CharField(verbose_name='Акция', max_length=64, blank=True)
     main_image   = models.CharField(verbose_name='Изображение', max_length=64, blank=True)
     images       = models.CharField(verbose_name='Дополнительные изображения', max_length=64, blank=True)
-    images       = models.ImageField(upload_to='products_images', blank=True)
+#    images       = models.ImageField(upload_to='products_images', blank=True)
     price        = models.DecimalField(verbose_name='Цена продукта', max_digits=8, decimal_places=2, default=0)
     short_desc   = models.CharField(verbose_name='Краткое описание продукта', max_length=60, blank=True)
     description  = models.TextField(verbose_name='Описание', max_length=64, blank=True)

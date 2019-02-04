@@ -1,7 +1,8 @@
 from django.core.management.base import BaseCommand
 from mainapp.models import Categories
 from mainapp.models import Products
-
+#from django.contrib.auth.models import User
+from authapp.models import ShopUser
 
 import json
 import os
@@ -30,12 +31,10 @@ class Command(BaseCommand):
             category_name = product["category"]
             _category = Categories.objects.get(name=category_name)
             product['category'] = _category
-            print(product)
             new_product = Products(**product)
-            print(new_product)
             new_product.save()
 
 #        Создаем суперпользователя при помощи менеджера модели
 #        super_user = User.objects.create_superuser('django', 'django@geekshop.local', 'geekbrains')
 #        Создаем суперпользователя при помощи менеджера модели
-        #super_user = ShopUser.objects.create_superuser('django', 'django@geekshop.local', 'geekbrains', age=33)
+        super_user = ShopUser.objects.create_superuser('django', 'django@geekshop.local', 'geekbrains', age=33)
