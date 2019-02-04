@@ -21,4 +21,5 @@ urlpatterns = [
     path('', mainapp.products, name='index'),
 #    path('/', mainapp.products, name='index'),
     path('product_<str:name>', mainapp.products, name='product'),
+    path('category/<int:pk>/', mainapp.products, name='category'),
 ]
