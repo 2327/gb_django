@@ -9,7 +9,14 @@ from basketapp.models import Basket
 
 def main(request):
     title = 'главная'
-    content = {'title': title}
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
+    content = {
+        'title': title,
+        'basket': basket,
+        }
     return render(request, 'mainapp/index.html', content)
 
 
@@ -60,7 +67,8 @@ def products(request, pk=None):
     content = {
         'title': title,
         'links_menu': links_menu,
-        'same_products': same_products
+        'same_products': same_products,
+        'basket': basket,
     }
 
     return render(request, 'mainapp/products.html', content)
@@ -69,14 +77,28 @@ def product(request, name=''):
     categories = Categories.objects.all()[:6]
     products = Products.objects.all()
 
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
     content = {
         'title': 'Каталог',
         'categories': categories,
-        'product': product
+        'product': product,
+        'basket': basket,
     }
 
     return render(request, 'mainapp/products.html', content)
 
 
 def contact(request):
-    return render(request, 'mainapp/contact.html')
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
+    content = {
+        'title': 'Контакты',
+        'basket': basket,
+    }
+
+    return render(request, 'mainapp/contact.html', content)
