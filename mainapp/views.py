@@ -1,7 +1,10 @@
 import json
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from .models import Categories
 from .models import Products
+from basketapp.models import Basket
+
 
 
 def main(request):
@@ -27,24 +30,27 @@ def main(request):
 #    return render(request, 'mainapp/products.html', content)
     
 def products(request, pk=None):
-    print(pk)
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
 
     title = 'продукты'
     links_menu = Categories.objects.all()
 
     if pk is not None:
         if pk == 0:
-            products = Product.objects.all().order_by('price')
+            products = Products.objects.all().order_by('price')
             category = {'name': 'все'}
         else:
             category = get_object_or_404(Categories, pk=pk)
-            products = Product.objects.filter(category__pk=pk).order_by('price')
+            products = Products.objects.filter(category__pk=pk).order_by('price')
 
         content = {
             'title': title,
             'links_menu': links_menu,
             'category': category,
             'products': products,
+            'basket': basket,
         }
 
         return render(request, 'mainapp/products_list.html', content)

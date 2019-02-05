@@ -34,7 +34,7 @@
                                         <li><a href="/" {% if request.path == '/' %} class="active" {% endif %}>домой</a></li>
                                         <li><a href="{% url 'products:index' %}"{% if 'product' in request.path %} class="active" {% endif %}>продукты</a></li>
                                         <li><a href="{% url 'contact' %}"{% if request.path == '/contacts/' or request.path == '/contacts' %} class="active" {% endif %}>контакты</a></li>
-                                        <li>{% include 'mainapp/inc_menu.html' %}</li>
+                                        <li>{% include 'mainapp/includes/inc_menu.html' %}</li>
                                 </ul>
                                 {% endblock %}
                                 {% block search %}
