@@ -30,7 +30,8 @@ urlpatterns = [
     path('basket/', include('basketapp.urls', namespace='basket')),
     path('contact/', mainapp.contact, name='contact'),
     path('contact.html', mainapp.contact, name='contact'),
-    path('auth/', include('authapp.urls', namespace='auth'))
+    path('auth/', include('authapp.urls', namespace='auth')),
+    path('admin/', include('adminapp.urls', namespace='admin'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
