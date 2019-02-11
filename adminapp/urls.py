@@ -1,5 +1,6 @@
-import adminapp.views as adminapp
 from django.urls import path
+import mainapp.views as mainapp
+import adminapp.views as adminapp
 
 app_name = 'adminapp'
 
