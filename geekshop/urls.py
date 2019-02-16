@@ -24,6 +24,7 @@ urlpatterns = [
     path('', mainapp.main),
     path('index.html', mainapp.main, name=''),
     path('index.html', mainapp.main, name='index'),
+    path('index.html', mainapp.main, name='main'),
     path('admin/', admin.site.urls),
     path('products/', include('mainapp.urls', namespace='products')),
     path('basket/', include('basketapp.urls', namespace='basket')),
