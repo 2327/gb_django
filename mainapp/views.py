@@ -5,6 +5,7 @@ from .models import Categories
 from .models import Products
 from basketapp.models import Basket
 import random
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def main(request):
@@ -40,24 +41,37 @@ def get_same_products(hot_product):
     return same_products
 
 
-def products(request, pk=None):
+def products(request, pk=None, page=1):
     title = 'продукты'
-    links_menu = Categories.objects.all()
+    links_menu = Categories.objects.filter(is_active=True)
     basket = get_basket(request.user)
 
     if pk is not None:
         if pk == 0:
-            products = Products.objects.all().order_by('price')
-            category = {'name': 'все'}
+            category = {
+                'pk': 0,
+                'name': 'все'
+            }
+            products = Products.objects.filter(is_active=True, \
+                                              category_is_active=True).order_by('price')
         else:
             category = get_object_or_404(Categories, pk=pk)
-            products = Products.objects.filter(category__pk=pk).order_by('price')
+            products = Products.objects.filter(category_pk=pk, \
+                                              is_active=True, category_is_active=True).order_by('price')
+
+        paginator = Paginator(products, 2)
+        try:
+            products_paginator = paginator.page(page)
+        except PageNotAnInteger:
+            products_paginator = paginator.page(1)
+        except EmptyPage:
+            products_paginator = paginator.page(paginator.num_pages)
 
         content = {
             'title': title,
             'links_menu': links_menu,
             'category': category,
-            'products': products,
+            'products': products_paginator,
             'basket': basket,
         }
 
@@ -82,7 +96,7 @@ def product(request, pk):
 
     content = {
         'title': title,
-        'links_menu': ProductCategory.objects.all(),
+        'links_menu': Categories.objects.all(),
         'product': get_object_or_404(Product, pk=pk),
         'basket': get_basket(request.user),
     }

@@ -9,6 +9,7 @@ from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse
 from authapp.forms import ShopUserRegisterForm
 from adminapp.forms import ShopUserAdminEditForm
+from adminapp.forms import ProductEditForm
 
 @user_passes_test(lambda u: u.is_superuser)
 def users(request):
@@ -79,7 +80,7 @@ def user_delete(request, pk):
 def categories(request):
     title = 'админка/категории'
 
-    categories_list = ProductCategory.objects.all()
+    categories_list = Categories.objects.all()
 
     content = {
         'title': title,
@@ -116,17 +117,68 @@ def products(request, pk):
     return render(request, 'adminapp/products.html', content)
 
 
-def product_create(request, pk):
-    pass
-
-
 def product_read(request, pk):
-    pass
+    title = 'продукт/подробнее'
+    product = get_object_or_404(Product, pk=pk)
+    content = {'title': title, 'object': product, }
+
+    return render(request, 'adminapp/product_read.html', content)
+
+
+def product_create(request, pk):
+    title = 'продукт/создание'
+    category = get_object_or_404(ProductCategory, pk=pk)
+
+    if request.method == 'POST':
+        product_form = ProductEditForm(request.POST, request.FILES)
+        if product_form.is_valid():
+            product_form.save()
+            return HttpResponseRedirect(reverse('admin:products', args=[pk]))
+    else:
+        product_form = ProductEditForm(initial={'category': category})
+    content = {'title': title,
+               'update_form': product_form,
+               'category': category
+               }
+
+    return render(request, 'adminapp/product_update.html', content)
 
 
 def product_update(request, pk):
-    pass
+    title = 'продукт/редактирование'
+
+    edit_product = get_object_or_404(Product, pk=pk)
+
+    if request.method == 'POST':
+        edit_form = ProductEditForm(request.POST, request.FILES, \
+                                    instance=edit_product)
+        if edit_form.is_valid():
+            edit_form.save()
+            return HttpResponseRedirect(reverse('admin:product_update', \
+                                                args=[edit_product.pk]))
+    else:
+        edit_form = ProductEditForm(instance=edit_product)
+
+    content = {'title': title,
+               'update_form': edit_form,
+               'category': edit_product.category
+               }
+
+    return render(request, 'adminapp/product_update.html', content)
 
 
 def product_delete(request, pk):
-    pass
+    title = 'продукт/удаление'
+
+    product = get_object_or_404(Product, pk=pk)
+
+    if request.method == 'POST':
+        product.is_active = False
+        product.save()
+        return HttpResponseRedirect(reverse('admin:products', \
+                                            args=[product.category.pk]))
+
+    content = {'title': title, 'product_to_delete': product}
+
+    return render(request, 'adminapp/product_delete.html', content)
+
