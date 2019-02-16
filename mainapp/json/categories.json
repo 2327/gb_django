@@ -3,28 +3,28 @@
     {
         "href": "all",
         "name": "все",
-        "category_is_active": True
+        "is_active": "true"
     },
     {
         "href": "home",
         "name": "дом",
-        "category_is_active": True
+        "is_active": "true"
     },
     {
         "href": "office",
         "name": "офис",
-        "category_is_active": True
+        "is_active": "true"
     },
     {
         "href": "modern",
         "name": "модерн",
-        "category_is_active": True
+        "is_active": "true"
 
     },
     {
         "href": "classic",
         "name": "классика",
-        "category_is_active": True
+        "is_active": "true"
     }
 ]
 }

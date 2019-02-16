@@ -43,7 +43,7 @@ def get_same_products(hot_product):
 
 def products(request, pk=None, page=1):
     title = 'продукты'
-    links_menu = Categories.objects.filter(is_active=True)
+    links_menu = Categories.objects.filter(is_active='true')
     basket = get_basket(request.user)
 
     if pk is not None:
@@ -52,12 +52,12 @@ def products(request, pk=None, page=1):
                 'pk': 0,
                 'name': 'все'
             }
-            products = Products.objects.filter(is_active=True, \
-                                              category_is_active=True).order_by('price')
+            products = Products.objects.filter(is_active='true', \
+                                              category__is_active='true').order_by('price')
         else:
             category = get_object_or_404(Categories, pk=pk)
             products = Products.objects.filter(category_pk=pk, \
-                                              is_active=True, category_is_active=True).order_by('price')
+                                              is_active='true', category__is_active='true').order_by('price')
 
         paginator = Paginator(products, 2)
         try:

@@ -3,7 +3,7 @@
   {
     "name": "Отличный стул",
     "category": "дом",
-    "discount": True,
+    "discount": "true",
     "main_image": "slider1.jpg",
     "images": [
       "controll.jpg",
@@ -13,12 +13,12 @@
     "price": "2585.9",
     "currency": "руб.",
     "description": "<p>Расположитесь комфортно.</p><p>Отличное качество материалов позволит вам это.</p> <p>Различные цвета</p> <p>высочайший уровень эргономики и прочность.</p>",
-    "is_active": True
+    "is_active": "true"
   },
   {
     "name": "Отличный стул1",
     "category": "офис",
-    "discount": True,
+    "discount": "true",
     "main_image": "slider1.jpg",
     "images": [
       "controll.jpg",
@@ -28,12 +28,12 @@
     "price": "2586.9",
     "currency": "руб.",
     "description": "<p>Расположитесь комфортно.</p><p>Отличное качество материалов позволит вам это.</p> <p>Различные цвета</p> <p>высочайший уровень эргономики и прочность.</p>",
-    "is_active": True
+    "is_active": "true"
   },
   {
     "name": "Отличный стул2",
     "category": "офис",
-    "discount": True,
+    "discount": "true",
     "main_image": "slider1.jpg",
     "images": [
       "controll.jpg",
@@ -43,12 +43,12 @@
     "price": "2586.9",
     "currency": "руб.",
     "description": "<p>Расположитесь комфортно.</p><p>Отличное качество материалов позволит вам это.</p> <p>Различные цвета</p> <p>высочайший уровень эргономики и прочность.</p>",
-    "is_active": True
+    "is_active": "true"
   },
   {
     "name": "Отличный стул3",
     "category": "офис",
-    "discount": True,
+    "discount": "true",
     "main_image": "slider1.jpg",
     "images": [
       "controll.jpg",
@@ -58,12 +58,12 @@
     "price": "2586.9",
     "currency": "руб.",
     "description": "<p>Расположитесь комфортно.</p><p>Отличное качество материалов позволит вам это.</p> <p>Различные цвета</p> <p>высочайший уровень эргономики и прочность.</p>",
-    "is_active": True
+    "is_active": "true"
   },
   {
     "name": "Отличный стул4",
     "category": "офис",
-    "discount": True,
+    "discount": "true",
     "main_image": "slider1.jpg",
     "images": [
       "controll.jpg",
@@ -73,7 +73,7 @@
     "price": "2586.9",
     "currency": "руб.",
     "description": "<p>Расположитесь комфортно.</p><p>Отличное качество материалов позволит вам это.</p> <p>Различные цвета</p> <p>высочайший уровень эргономики и прочность.</p>",
-    "is_active": True
+    "is_active": "true"
   }
   ]
 }

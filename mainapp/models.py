@@ -6,7 +6,7 @@ class Categories(models.Model):
     name         = models.CharField(verbose_name='имя', max_length=64, unique=True)
     href         = models.CharField(verbose_name='ссылка', max_length=64, unique=True)
     description  = models.TextField(verbose_name='описание', max_length=64, blank=True)
-    category_is_active = models.BooleanField(verbose_name='активна', default=True)
+    is_active    = models.CharField(verbose_name='Активно', max_length=64, blank=True)
 
     def __str__(self):
         return self.name
@@ -15,7 +15,7 @@ class Products(models.Model):
     name         = models.CharField(verbose_name='Имя', max_length=64, unique=True)
     category     = models.ForeignKey(Categories, on_delete=models.CASCADE)
 #    href         = models.CharField(verbose_name='Ссылка', max_length=64, unique=True)
-    discount     = models.BooleanField(verbose_name='Акция', default=True)
+    discount     = models.CharField(verbose_name='Акция', max_length=64, blank=True)
     main_image   = models.CharField(verbose_name='Изображение', max_length=64, blank=True)
     images       = models.CharField(verbose_name='Дополнительные изображения', max_length=64, blank=True)
 #    images       = models.ImageField(upload_to='products_images', blank=True)
@@ -24,7 +24,7 @@ class Products(models.Model):
     description  = models.TextField(verbose_name='Описание', max_length=64, blank=True)
     quantity     = models.PositiveIntegerField(verbose_name='Количество на складе', default=0)
     currency     = models.CharField(verbose_name='Валюта', max_length=4, default='руб.')
-    is_active    = models.BooleanField(verbose_name='Активно', default=True)
+    is_active    = models.CharField(verbose_name='Активно', max_length=64, blank=True)
 
     def __str__(self):
         return f"{self.name} ({self.category.name})"
