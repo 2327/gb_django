@@ -1,9 +1,30 @@
 {
 "categories":[
-    {"href": "all", "name": "все"},
-    {"href": "home", "name": "дом"},
-    {"href": "office", "name": "офис"},
-    {"href": "modern", "name": "модерн"},
-    {"href": "classic", "name": "классика"}
+    {
+        "href": "all",
+        "name": "все",
+        "is_active": "true"
+    },
+    {
+        "href": "home",
+        "name": "дом",
+        "is_active": "true"
+    },
+    {
+        "href": "office",
+        "name": "офис",
+        "is_active": "true"
+    },
+    {
+        "href": "modern",
+        "name": "модерн",
+        "is_active": "true"
+
+    },
+    {
+        "href": "classic",
+        "name": "классика",
+        "is_active": "true"
+    }
 ]
 }
