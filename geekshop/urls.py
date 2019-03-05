@@ -17,6 +17,7 @@ urlpatterns = [
 
     re_path(r'^admin/', include('adminapp.urls', namespace='admin')),
     re_path(r'', include('social_django.urls', namespace='social')),
+    re_path(r'^order/', include('ordersapp.urls', namespace='order')),
 ]
 
 if settings.DEBUG:
