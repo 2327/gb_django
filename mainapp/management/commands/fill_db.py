@@ -3,7 +3,6 @@ from mainapp.models import ProductCategory, Product
 from authapp.models import ShopUser
 from mainapp.views import load_from_json
 
-
 JSON_PATH = 'mainapp/json'
 
 
@@ -17,10 +16,9 @@ class Command(BaseCommand):
         for category in categories:
             new_category = ProductCategory(**category)
             new_category.save()
-        
-        
+
         products = load_from_json('products')
-        
+
         Product.objects.all().delete()
         for product in products:
             category_name = product["category"]
@@ -33,5 +31,5 @@ class Command(BaseCommand):
 
         # Создаем суперпользователя при помощи менеджера модели
         super_user = ShopUser.objects.create_superuser('django', 'django@geekshop.local', 'geekbrains', age=33)
-        
+
 

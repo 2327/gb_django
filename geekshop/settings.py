@@ -9,10 +9,9 @@ SECRET_KEY = 'xxac+ln+74ue7w1tj7%l3kw)9ygh893s6q$g)5ps4c#s!=19yk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-#DEBUG = False
 #ALLOWED_HOSTS = ['127.0.0.1']
-ALLOWED_HOSTS = []
-
+#DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -27,7 +26,7 @@ INSTALLED_APPS = [
     'mainapp',
     'authapp',
     'basketapp',
-    'orderapp',
+    'ordersapp',
     'adminapp'
 ]
 
@@ -75,6 +74,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+
+    #'default': {
+    #    'NAME': 'geekshop',
+    #    'ENGINE': 'django.db.backends.postgresql',
+    #    'USER': 'django',
+    #    'PASSWORD': 'geekbrains',
+    #    'HOST': 'localhost'
+    #}
 }
 
 
@@ -129,7 +136,7 @@ SOCIAL_AUTH_PIPELINE = (
 LANGUAGE_CODE = 'ru-ru'
 
 #TIME_ZONE = 'UTC'
-TIME_ZONE = 'Asia/Yekaterinburg'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -154,6 +161,7 @@ AUTH_USER_MODEL = 'authapp.ShopUser'
 
 LOGIN_URL = '/auth/login/'
 
+LOGIN_REDIRECT_URL = '/'
 
 DOMAIN_NAME = 'http://localhost:8000'
 

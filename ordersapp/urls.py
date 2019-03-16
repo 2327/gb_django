@@ -13,6 +13,6 @@ urlpatterns = [
            name='order_read'),
    re_path(r'^update/(?P<pk>\d+)/$', ordersapp.OrderItemsUpdate.as_view(),
            name='order_update'),
-   re_path(r'^delete/(?P<pk>\d+)/$', ordersapp.OrderDelete.as_view(),
-           name='order_delete'),
+#   re_path(r'^delete/(?P<pk>\d+)/$', ordersapp.OrderDelete.as_view(),
+#           name='order_delete'),
 ]
